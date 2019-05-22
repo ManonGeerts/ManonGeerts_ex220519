@@ -1,0 +1,24 @@
+Question 5 
+
+mysql> select chromosome, count(*) as numberofgenes from gene where description like "%cancer%" group by chromosome order by numberofgenes desc limit 1 offset 1;
++------------+---------------+
+| chromosome | numberofgenes |
++------------+---------------+
+| 9          |             5 |
++------------+---------------+
+1 row in set (0.17 sec)
+
+
+
+mysql> SELECT count(e.exon_id) from gene g  
+	JOIN transcript t ON t.gene_id=g.gene_id 
+	JOIN exon_transcript et ON et.transcript_id=t.transcript_id 
+	JOIN exon e ON e.exon_id=et.exon_id 
+	WHERE chromosome=9;
++------------------+
+| count(e.exon_id) |
++------------------+
+|            45679 |
++------------------+
+1 row in set, 5348 warnings (0.65 sec)
+	
