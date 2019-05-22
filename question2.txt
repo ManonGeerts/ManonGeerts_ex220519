@@ -1,0 +1,28 @@
+Question 2
+
+Unnormalized form UNF
+RESEARCHLAB(personel_number, name, date_of_birth, lab_code, lab_name, research_code, research_description, research_supervisor)
+
+1NF: seperate repeating groups 
+RESEARCH(research_code, research_description, research_supervisor)
+	key: research_code
+RESEARCHLAB(personel_number, research_code, name, date_of_birth, lab_code, lab_name)
+	compound key: personel_number, research_code
+
+2NF: remove partial dependencies 
+RESEARCH(research_code, research_description, research_supervisor)
+	key: research_code
+PERSONEL(personel_number, name, date_of_birth)
+	key: personel_number
+RESEARCHLAB(personel_number, research_code, lab_code, lab_name)
+	compound key: personel_number, research_code
+
+3NF: remove transitive dependencies 
+RESEARCH(research_code, research_description, research_supervisor)
+	key: research_code
+PERSONAL(personel_number, name, date_of_birth)
+	key: personel_number
+LAB(lab_code, lab_number)
+	key: lab_code
+RESEARCHLAB(personel_number, research_code, lab_code)
+	compound key: personel_number, research_code
