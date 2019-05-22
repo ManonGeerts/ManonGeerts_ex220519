@@ -1,0 +1,13 @@
+exersize 4
+
+mysql> select gene_name, seq_region_end-seq_region_start as gsize from gene order by gsize limit 1;
++-----------+-------+
+| gene_name | gsize |
++-----------+-------+
+| TRDD1     |     7 |
++-----------+-------+
+1 row in set (0.12 sec)
+
+
+
+
