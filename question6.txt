@@ -1,0 +1,3 @@
+Question 6
+
+db.bioinf_mongo_exam.find({method_of_admission:["TABLET;BUCCAL", "SUBLINGUAL"]}, {drug:1})
